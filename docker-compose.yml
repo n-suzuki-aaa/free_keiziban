@@ -8,6 +8,23 @@ services:
       MYSQL_DATABASE: thread_bbs
     volumes:
       - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: "mysql://root:password@db:3306/thread_bbs"
+    depends_on:
+      db:
+        condition: service_healthy
 
 volumes:
   mysql_data:
