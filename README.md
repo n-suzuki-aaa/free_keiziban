@@ -1,5 +1,19 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Environment Variables
+
+Copy `.env.example` to create `.env` and set each value.
+
+```bash
+cp .env.example .env
+```
+
+| Variable Name | Description | Example |
+|---|---|---|
+| `DATABASE_URL` | MySQL connection URL | `mysql://root:password@localhost:3306/thread_bbs` |
+| `NEXT_PUBLIC_SITE_NAME` | Site name (displayed in headers, etc.) | `Bulletin Board` |
+| `NEXT_PUBLIC_SITE_DESCRIPTION` | Site description (used for meta information, etc.) | `This bulletin board allows anyone to post freely without requiring membership registration.` |
+
 ## Getting Started
 
 First, run the development server:
